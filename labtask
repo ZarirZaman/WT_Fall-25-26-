@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <title>Clinic PAtient Registration</title>
+
+    <style>button[type="submit"]{
+    background-color: #2a1c86;
+            color: white;
+}</style>
+
+<body>
+<center>
+    <h2> Clinic Patient Registration</h2>
+    
+</center>
+    <center>  
+    <tr>
+        <td >Full Name: </td>
+        <br>
+    
+        <td><input type="text"></td>
+        <br><br>
+        
+        <td >Age: </td>
+        <br>
+        <td><input type="text"></td>
+        <br><br>
+
+         <td >Phone Number: </td>
+        <br>
+        <td><input type="text"></td>
+        <br><br>
+
+         <td >Email Address: </td>
+        <br>
+        <td><input type="text"></td>
+        <br><br>
+
+         <td >Insurance provider : </td>
+        <br>
+        <td>
+            <select >
+                <option>Select Provider</option>
+                <option>MetLife</option>
+                <option>Delta Life Insurance Co Ltd</option>
+                <option>Jiban Bima Corporation</option>
+                <option>Popular Life Insurance Co Ltd. (PLICL)</option>
+            </select>
+        </td>
+        <br><br>
+         <td >Insurance Policy Number: </td>
+        <br>
+        <td><input type="text"></td>
+        <br>
+    </tr>
+    
+</center>
+       
+
+<center><h2>Additional Information</h2></center>
+<center>
+    <tr>
+    <td >Username: </td>
+        <br>
+        <td><input type="text"></td>
+        <br><br>
+        
+        <td >Password: </td>
+        <br>
+        <td><input type="text"></td>
+        <br><br>
+
+         <td >Confirm Password: </td>
+        <br>
+        <td><input type="text"></td>
+        <br><br>
+
+</tr>
+</center>
+<center>
+    
+   <button type="submit"> Register</button>
+</center>
