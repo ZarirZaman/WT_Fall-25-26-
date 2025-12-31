@@ -1,5 +1,5 @@
 <?php
-
+require_once 'includes/auth.php';
 $message = '';
 $message_type = '';
 
