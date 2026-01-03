@@ -82,7 +82,6 @@ if (isset($_SESSION['cart'])) {
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Temporary inline styles for testing */
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; }
         header { background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); padding: 1rem 0; }
         .navbar { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; }

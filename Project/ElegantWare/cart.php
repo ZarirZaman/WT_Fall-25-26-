@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/auth.php'; // This includes db.php and session start
+require_once 'includes/auth.php'; 
 $error = '';
 $success = '';
 
