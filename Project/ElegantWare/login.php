@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($result['success']) {
         // Redirect based on user type
         if ($result['user_type'] === 'admin') {
-            redirect('User/admin_dashboard.php');
+            redirect('');
         } else {
             redirect('index.php');
         }
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
     <head>
         <title>Login - ElegantWare</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="/ElegantWareUserCustomer/css/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
