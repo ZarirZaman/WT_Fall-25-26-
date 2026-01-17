@@ -1,6 +1,4 @@
 <?php
-// cart_func.php
-
 function addToCart($product_id, $quantity = 1) {
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = [];
