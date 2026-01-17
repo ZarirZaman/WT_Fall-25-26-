@@ -5,7 +5,6 @@ $user = 'root';
 $password = '';
 $database = 'crockery_store';
 
-// Create connection
 $conn = new mysqli($host, $user, $password, $database);
 
 // Check connection
