@@ -1,8 +1,7 @@
 <?php
 require_once '../Model/config.php';
 require_once '../Model/auth.php';
-require_once '../Model/cart_func.php';
-session_start();
+
 if (!isset($_SESSION['admin'])) {
     header("Location: admin_login.php");
     exit();
