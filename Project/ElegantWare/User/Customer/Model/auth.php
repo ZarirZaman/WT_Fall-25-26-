@@ -1,6 +1,4 @@
 <?php
-// Remove this line from auth.php since config.php already handles it
-// require_once 'config.php';
 
 function isLoggedIn() {
     return isset($_SESSION['user_id']);
@@ -95,15 +93,12 @@ function loginUser($email, $password) {
 }
 
 function logoutUser() {
-    // Unset all session variables
     $_SESSION = array();
     
-    // Destroy the session
     if (session_status() === PHP_SESSION_ACTIVE) {
         session_destroy();
     }
     
-    // Start a new session (optional, for any new session data)
     session_start();
 }
 
