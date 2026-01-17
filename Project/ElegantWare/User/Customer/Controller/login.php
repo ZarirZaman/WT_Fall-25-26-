@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Redirect based on user type
         if ($result['user_type'] === 'admin') {
-            redirect('admin/admin_dashboard.php');
+            redirect('admin/dashboard.php');
         } else {
             redirect('dashboard.php');
         }
