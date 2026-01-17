@@ -12,23 +12,24 @@ if (isLoggedIn()) {
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
 
     $result = loginUser($email, $password);
 
-    if ($result['success'] === true) {
-
-        
+    if (is_array($result) && isset($result['success']) && $result['success'] === true) {
         if ($result['user_type'] === 'admin') {
-            redirect('admin/dashboard.php');
+            redirect('admin/admin_login.php');
         } else {
             redirect('dashboard.php');
         }
-
     } else {
-        $message = $result['message'] ?? 'Invalid email or password';
+        // Handle both array and boolean returns from loginUser()
+        if (is_array($result)) {
+            $message = $result['message'] ?? 'Invalid email or password';
+        } else {
+            $message = 'Invalid email or password';
+        }
         $message_type = 'danger';
     }
 }
