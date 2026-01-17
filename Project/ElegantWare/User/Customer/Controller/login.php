@@ -1,7 +1,6 @@
 <?php
 require_once '../Model/config.php';
 require_once '../Model/auth.php';
-
 $message = '';
 $message_type = '';
 
