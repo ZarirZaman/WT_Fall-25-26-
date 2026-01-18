@@ -13,7 +13,7 @@ if (!isLoggedIn() || $_SESSION['user_type'] !== 'admin') {
 <html>
 <head>
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="cart.css"> <!-- adjust if cart.css is elsewhere -->
+    <link rel="stylesheet" href="admin_cart.css"> <!-- adjust if cart.css is elsewhere -->
 </head>
 <body>
 

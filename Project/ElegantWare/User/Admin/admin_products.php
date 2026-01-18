@@ -14,7 +14,7 @@ $result = mysqli_query($conn, "SELECT * FROM products");
 <html>
 <head>
     <title>Products</title>
-    <link rel="stylesheet" href="../cart.css">
+    <link rel="stylesheet" href="admin_cart.css">
 </head>
 <body>
 

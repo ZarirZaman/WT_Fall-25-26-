@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Add Product</title>
-    <link rel="stylesheet" href="../cart.css"> <!-- adjust if cart.css is elsewhere -->
+    <link rel="stylesheet" href="admin_cart.css"> <!-- adjust if cart.css is elsewhere -->
 </head>
 <body>
 
