@@ -4,7 +4,6 @@ require_once '../Model/auth.php';
 $message = '';
 $message_type = '';
 
-// Check if user is already logged in
 if (isLoggedIn()) {
     redirect('index.php');
 }
@@ -18,10 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (is_array($result) && isset($result['success']) && $result['success'] === true) {
         if ($result['user_type'] === 'admin') {
-            redirect('admin/admin_login.php');
-        } else {
-            redirect('dashboard.php');
-        }
+            redirect('User/Admin/admin_dashboard.php'); 
+            } else {
+                 redirect('index_view.php'); 
+}  
+
     } else {
         if (is_array($result)) {
             $message = $result['message'] ?? 'Invalid email or password';
