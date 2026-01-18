@@ -1,11 +1,11 @@
 <?php
-require_once 'Model/config.php';
-require_once 'Model/db.php';
-require_once 'Model/auth.php';
+require_once '../Model/config.php';
+require_once '../Model/db.php';
+require_once '../Model/auth.php';
 
 // Only allow admins
 if (!isLoggedIn() || $_SESSION['user_type'] !== 'admin') {
-    redirect('Admin/admin_dashboard.php');
+    redirect('../Admin/admin_dashboard.php');
 }
 ?>
 

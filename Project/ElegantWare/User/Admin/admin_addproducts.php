@@ -1,11 +1,11 @@
 <?php
-require_once 'Model/config.php';
-require_once 'Model/db.php';
-require_once 'Model/auth.php';
+require_once '../Model/config.php';
+require_once '../Model/db.php';
+require_once '../Model/auth.php';
 
 // Check if user is admin
 if (!isLoggedIn() || $_SESSION['user_type'] !== 'admin') {
-    redirect('Admin/admin_dashboard.php'); 
+    redirect('../Admin/admin_dashboard.php'); 
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'] ?? '';
