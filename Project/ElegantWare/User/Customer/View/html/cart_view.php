@@ -36,7 +36,6 @@
                     <?php endif; ?>
                 </a></li>
                 <li><a href="checkout.php">Checkout</a></li>
-                <li><a href="#dashboard">Profile</a></li>
                 <?php if ($data['user'] && isset($data['user']['username'])): ?>
                 <div class="welcome-user">
                     <i class="fas fa-user-circle"></i> Welcome, <?php echo htmlspecialchars($data['user']['username']); ?>!

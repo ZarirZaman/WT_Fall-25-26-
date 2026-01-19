@@ -18,12 +18,10 @@
                                     <input type="text"
                                     name="search" id="searchInput" 
                                     class="search-input" placeholder="Search products..." 
-                                    value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>" autocomplete="off">
-                        <button type="submit" class="search-btn">
-                            <i class="fas fa-search"></i>
-                        </button>
-                        <div class="search-suggestions" id="searchSuggestions"></div>
-                        </div>
+                                    value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>" autocomplete="off">                        
+                                    <button type="submit" class="search-btn"> <i class="fas fa-search"></i></button>                        
+                                    <div class="search-suggestions" id="searchSuggestions"></div>                        
+                                </div>
                             </form>
                         </div>
                 <ul class="nav-links">
@@ -52,7 +50,7 @@
                 </div>
             <?php endif; ?>
                     <?php if(isset($data['is_logged_in']) && $data['is_logged_in']): ?>
-                        <li><a href="#dashboard">Profile</a></li>
+                      
                         <li><a href="logout.php">Logout</a></li>
                     <?php else: ?>
                         <li><a href="login.php">Login</a></li>
