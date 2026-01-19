@@ -111,55 +111,161 @@
                         </div>
                     </div>
                 </div>
+                
                 <!-- Order Items -->
                 <div class="info-section">
-                     <h2>Order Details</h2>
-                        <div class="order-items">
+                    <h2>Order Details</h2>
+                    <div class="order-items">
                         <?php if (isset($data['order_items']) && is_array($data['order_items'])): ?>
-                        <?php foreach ($data['order_items'] as $item): ?>
-                        <div class="order-item">
-                          <div class="item-details">
-                            <h4><?php echo htmlspecialchars($item['product_name'] ?? 'Product'); ?></h4>
-                             <p class="item-quantity">Quantity: <?php echo $item['quantity'] ?? 0; ?></p>
-                            <p>Unit Price: $<?php echo number_format($item['price'] ?? 0, 2); ?></p>
-                        </div>                          
-                        <div class="item-price">                        
-                            $<?php echo number_format($item['total'] ?? 0, 2); ?>
-                        </div>                
-                    </div>
-                    <?php endforeach; ?>        
-                    <?php else: ?>            
-                        <div class="no-items">                
-                            <p>No items found in this order.</p>            
-                        </div>        
-                        <?php endif; ?>                    
-                </div>
-                <!-- Order Total -->
-                <div class="order-total">    
-                    <div class="total-row">        
-                        <span>Subtotal:</span>       
-                        <span>$<?php echo number_format($data['subtotal'] ?? 0, 2); ?></span>                    
-                    </div>
-                    <div class="total-row">        
-                        <span>Shipping:</span>        
-                        <span>            
-                            <?php if (($data['shipping'] ?? 0) == 0): ?>                
-                                <span class="free-text">FREE</span>            
-                                <?php else: ?>                
-                                    $<?php echo number_format($data['shipping'] ?? 0, 2); ?>            
-                                <?php endif; ?>        
-                        </span>                    
-                            </div>    
-                            <div class="total-row">        
-                                <span>Tax (8%):</span>        
-                                <span>$<?php echo number_format($data['tax'] ?? 0, 2); ?></span>    
-                            </div>        
-                            <div class="total-row grand-total">        
-                                <span>Total Amount:</span>        
-                                <span>$<?php echo number_format($data['grand_total'] ?? 0, 2); ?></span>    
+                            <?php foreach ($data['order_items'] as $item): ?>
+                                <div class="order-item">
+                                    <div class="item-details">
+                                        <h4><?php echo htmlspecialchars($item['product_name'] ?? 'Product'); ?></h4>
+                                        <p class="item-quantity">Quantity: <?php echo $item['quantity'] ?? 0; ?></p>
+                                        <p>Unit Price: $<?php echo number_format($item['price'] ?? 0, 2); ?></p>
+                                    </div>
+                                    <div class="item-price">
+                                        $<?php echo number_format($item['total'] ?? 0, 2); ?>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <div class="no-items">
+                                <p>No items found in this order.</p>
                             </div>
+                        <?php endif; ?>
+                    </div>
+                    
+                    <!-- Order Total -->
+                    <div class="order-total">
+                        <div class="total-row">
+                            <span>Subtotal:</span>
+                            <span>$<?php echo number_format($data['subtotal'] ?? 0, 2); ?></span>
+                        </div>
+                        
+                        <div class="total-row">
+                            <span>Shipping:</span>
+                            <span class="free-text">
+                                <?php if (($data['shipping'] ?? 0) == 0): ?>
+                                    FREE
+                                <?php else: ?>
+                                    $<?php echo number_format($data['shipping'] ?? 0, 2); ?>
+                                <?php endif; ?>
+                            </span>
+                        </div>
+                        
+                        <div class="total-row">
+                            <span>Tax (8%):</span>
+                            <span>$<?php echo number_format($data['tax'] ?? 0, 2); ?></span>
+                        </div>
+                        
+                        <div class="total-row grand-total">
+                            <span>Total Amount:</span>
+                            <span>$<?php echo number_format($data['grand_total'] ?? 0, 2); ?></span>
+                        </div>
+                    </div>
                 </div>
-                 
+                
+                <!-- ORDER CONFIRMATION FORM -->
+                <div class="confirmation-form">
+                    <h2><i class="fas fa-clipboard-check"></i> Order Feedback & Preferences</h2>
+                    
+                    <!-- Success message container -->
+                    <div class="form-message" style="display: none;"></div>
+                    
+                    <form id="orderFeedbackForm" method="POST">
+                        <!-- Hidden order ID field -->
+                        <input type="hidden" name="order_id" value="<?php echo htmlspecialchars($data['order_id']); ?>">
+                        
+                        <div class="form-group">
+                            <label class="form-label">How was your shopping experience? *</label>
+                            <div class="rating-group">
+                                <div class="rating-stars">
+                                    <input type="radio" id="star5" name="experience_rating" value="5" required>
+                                    <label for="star5" title="Excellent">★</label>
+                                    <input type="radio" id="star4" name="experience_rating" value="4">
+                                    <label for="star4" title="Good">★</label>
+                                    <input type="radio" id="star3" name="experience_rating" value="3">
+                                    <label for="star3" title="Average">★</label>
+                                    <input type="radio" id="star2" name="experience_rating" value="2">
+                                    <label for="star2" title="Poor">★</label>
+                                    <input type="radio" id="star1" name="experience_rating" value="1">
+                                    <label for="star1" title="Very Poor">★</label>
+                                </div>
+                                <div class="error-message"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="delivery_preference" class="form-label">Preferred Delivery Time</label>
+                                <select id="delivery_preference" name="delivery_preference" class="form-select">
+                                    <option value="">Select preferred time</option>
+                                    <option value="morning">Morning (9 AM - 12 PM)</option>
+                                    <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
+                                    <option value="evening">Evening (4 PM - 8 PM)</option>
+                                    <option value="anytime">Anytime</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact_method" class="form-label">Preferred Contact Method</label>
+                                <select id="contact_method" name="contact_method" class="form-select">
+                                    <option value="">Select contact method</option>
+                                    <option value="email">Email</option>
+                                    <option value="phone">Phone Call</option>
+                                    <option value="sms">SMS</option>
+                                    <option value="whatsapp">WhatsApp</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="special_instructions" class="form-label">Special Instructions for Delivery</label>
+                            <textarea 
+                                id="special_instructions" 
+                                name="special_instructions" 
+                                class="form-textarea" 
+                                placeholder="E.g., Leave at front door, call upon arrival, security gate code, etc..."
+                            ></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="feedback" class="form-label">Additional Feedback (Optional)</label>
+                            <textarea 
+                                id="feedback" 
+                                name="feedback" 
+                                class="form-textarea" 
+                                placeholder="Share your thoughts about our service, products, or suggestions for improvement..."
+                            ></textarea>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter" class="form-checkbox" checked>
+                            <label for="newsletter" class="checkbox-label">
+                                Yes, I'd like to receive updates about new products, offers, and promotions
+                            </label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="review_reminder" name="review_reminder" class="form-checkbox">
+                            <label for="review_reminder" class="checkbox-label">
+                                Send me a reminder to review my purchase after delivery
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="form-submit">
+                            <i class="fas fa-paper-plane"></i> Submit Preferences
+                        </button>
+                        
+                        <p class="form-note">
+                            <i class="fas fa-info-circle"></i>
+                            Your preferences will help us serve you better. You can update these anytime in your account settings.
+                        </p>
+                    </form>
+                </div>
+                <!-- END FORM -->
+                
                 <!-- Next Steps -->
                 <div class="info-section">
                     <h2>What Happens Next?</h2>
@@ -194,8 +300,8 @@
                 </div>
                 
                 <!-- Important Notes -->
-                <div class="info-section" style="border-bottom: none; text-align: center;">
-                    <p class="small-text" style="color: #666;">
+                <div class="important-notes">
+                    <p>
                         <i class="fas fa-info-circle"></i>
                         Please keep your order ID (#<?php echo htmlspecialchars($data['order_id']); ?>) for future reference.
                         You can track your order status in your account dashboard.
@@ -255,6 +361,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Confetti Button -->
+    <button class="confetti-button" title="Celebrate!">
+        <i class="fas fa-gift"></i>
+    </button>
 
     <script src="<?php echo ASSETS_URL; ?>js/confirmation.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>

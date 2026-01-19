@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (is_array($result) && isset($result['success']) && $result['success'] === true) {
         if ($result['user_type'] === 'admin') {
-            redirect('User/Admin/admin_dashboard.php'); 
+            redirect('../Admin/admin_dashboard.php'); 
             } else {
                  redirect('index_view.php'); 
 }  

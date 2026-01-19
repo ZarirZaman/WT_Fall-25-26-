@@ -1,38 +1,37 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+// config.php - Main configuration file
 
 /* =====================
    DATABASE CONFIG
 ===================== */
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'crockery_store');  // Same database as Customer
+define('DB_NAME', 'crockery_store');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 
-// Database connection
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 if ($conn->connect_error) {
-    die("Database connection failed: " . $conn->connect_error);
+    die("Database connection failed");
 }
 
 /* =====================
    SITE SETTINGS
 ===================== */
-define('SITE_NAME', 'ElegantWare - Admin');
+define('SITE_NAME', 'ElegantWare');
 
 /* =====================
    PATH SETTINGS
-   (You are inside Admin/Model/)
+   Adjust based on your actual structure
 ===================== */
-define('BASE_PATH', dirname(__DIR__));     // points to Admin folder
+define('BASE_PATH', dirname(__DIR__)); // Go up from Model/ to project root
 define('MODEL_PATH', BASE_PATH . '/Model/');
-define('CONTROLLER_PATH', BASE_PATH . '/Controller/');
-define('VIEW_PATH', BASE_PATH . '/View/');
+// Web URLs - adjust to match your XAMPP setup
+define('WEB_ROOT', '/WT_Fall-25-26-/Project/ElegantWare/');
+define('ADMIN_URL', WEB_ROOT . 'User/Admin/');
+define('ASSETS_URL', WEB_ROOT . 'assets/');
 
-/* =====================
-   WEB URLS
-===================== */
-define('WEB_ROOT', '/ElegantWare/Admin/');   // Admin URL
-define('ASSETS_URL', WEB_ROOT . 'View/');
+// Auto-start session only if not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
