@@ -24,7 +24,7 @@ body {
    HEADER & NAVIGATION - FIXED
    ====================== */
 header {
-    background: white;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -41,9 +41,9 @@ header {
 .logo {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: white;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: transoform 0.3s ease;
 }
 
 .logo span {
@@ -51,7 +51,7 @@ header {
 }
 
 .logo:hover {
-    color: #e74c3c;
+    transform: translateY(-2px);
 }
 
 .nav-links {
@@ -62,33 +62,44 @@ header {
 }
 
 .nav-links a {
-    color: #555;
+    color: #ecf0f1;
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.95rem;
     padding: 0.5rem 0.8rem;
     border-radius: 4px;
     transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .nav-links a:hover {
-    color: #e74c3c;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
 
 .nav-links a.active {
-    color: #e74c3c;
-    background: none;
-    font-weight: 600;
+    background-color: #e74c3c;
+    color: white;
 }
 
 .cart-link {
     position: relative;
 }
+/* Welcome user styling */
+.welcome-user {
+    color: white;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
 .cart-badge {
     background-color: #e74c3c;
     color: white;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     min-width: 18px;
     height: 18px;
     border-radius: 50%;
@@ -344,16 +355,21 @@ header {
 
 .product-image {
     height: 180px;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: linear-gradient(rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.55)),
+        url("../images/1.jpeg");;
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    
 }
 
 .product-image i {
     font-size: 4rem;
     color: #a0aec0;
     transition: all 0.3s ease;
+    
 }
 
 .product-card:hover .product-image i {

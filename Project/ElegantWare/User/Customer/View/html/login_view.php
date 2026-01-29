@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Login - ElegantWare</title>
-        <link rel="stylesheet" href="<?php echo ASSETS_URL; ?>css/login.css">
+        <link rel="stylesheet" href="/WT_Fall-25-26-/Project/Public/customer/css/login.css">
     </head>
     <body>
         <header>
@@ -40,6 +40,6 @@
             </div>
         </div>
         </main>
-        <script src="<?php echo ASSETS_URL; ?>js/login.js"></script>
+        <script src=/WT_Fall-25-26-/Project/Public/customer/js/login.js></script>
     </body>
 </html>

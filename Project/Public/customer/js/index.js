@@ -1,6 +1,3 @@
-// ======================
-// FORM VALIDATION FUNCTIONS
-// ======================
 
 function validatePassword(password) {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
@@ -34,9 +31,6 @@ function togglePasswordVisibility(inputId) {
         input.setAttribute('type', type);
     }
 }
-// ======================
-// CART FUNCTIONS - UNIVERSAL
-// ======================
 
 // Keep track of cart count globally
 let currentCartCount = 0;
@@ -237,9 +231,6 @@ if (typeof module !== 'undefined' && module.exports) {
     };
 }
 
-// ======================
-// CART INITIALIZATION
-// ======================
 
 function initializeCart() {
     // Quantity button listeners
@@ -341,10 +332,6 @@ function initializeCart() {
         });
     }
 }
-
-// ======================
-// DOM CONTENT LOADED
-// ======================
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize cart if on cart page

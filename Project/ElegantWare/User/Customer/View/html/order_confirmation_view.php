@@ -4,28 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Confirmation - ElegantWare</title>
-    <link rel="stylesheet" href="<?php echo ASSETS_URL; ?>css/cart.css">
-    <link rel="stylesheet" href="<?php echo ASSETS_URL; ?>css/confirmation.css">
+    <link rel="stylesheet" href="/WT_Fall-25-26-/Project/Public/customer/css/cart.css">
+    <link rel="stylesheet" href="/WT_Fall-25-26-/Project/Public/customer/css/confirmation.css">
+    <script src="/WT_Fall-25-26-/Project/Public/customer/js/cart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="container">
-                <a href="index.php" class="logo">Elegant<span>Ware</span></a>
-                <div class="search-container">
-                    <form id="searchForm" method="get" action="index.php" class="search-form">
-                        <div class="search-input-group">
-                            <input type="text"
-                                name="search" id="searchInput" 
-                                class="search-input" placeholder="Search products..." 
-                                value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>" autocomplete="off">
-                            <button type="submit" class="search-btn">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                <a href="index.php" class="logo">Elegant<span>Ware</span></a>      
+                <br>            
+                    <form id="searchForm" method="get" action="index.php" class="search-form">                                
+                        <div class="search-input-group">                                    
+                            <input type="text"name="search" id="searchInput" class="search-input" placeholder="Search products..." value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>" autocomplete="off">                            
+                            <button type="submit" class="search-btn"> <i class="fas fa-search"></i></button>                                                   
+                            <div class="search-suggestions" id="searchSuggestions"></div>                        
+                        </div>                            
+                    </form>                        
+                <br>
                 <ul class="nav-links">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="#categories">Categories</a></li>
@@ -166,104 +163,10 @@
                     </div>
                 </div>
                 
-                <!-- ORDER CONFIRMATION FORM -->
-                <div class="confirmation-form">
-                    <h2><i class="fas fa-clipboard-check"></i> Order Feedback & Preferences</h2>
-                    
                     <!-- Success message container -->
                     <div class="form-message" style="display: none;"></div>
                     
-                    <form id="orderFeedbackForm" method="POST">
-                        <!-- Hidden order ID field -->
-                        <input type="hidden" name="order_id" value="<?php echo htmlspecialchars($data['order_id']); ?>">
-                        
-                        <div class="form-group">
-                            <label class="form-label">How was your shopping experience? *</label>
-                            <div class="rating-group">
-                                <div class="rating-stars">
-                                    <input type="radio" id="star5" name="experience_rating" value="5" required>
-                                    <label for="star5" title="Excellent">★</label>
-                                    <input type="radio" id="star4" name="experience_rating" value="4">
-                                    <label for="star4" title="Good">★</label>
-                                    <input type="radio" id="star3" name="experience_rating" value="3">
-                                    <label for="star3" title="Average">★</label>
-                                    <input type="radio" id="star2" name="experience_rating" value="2">
-                                    <label for="star2" title="Poor">★</label>
-                                    <input type="radio" id="star1" name="experience_rating" value="1">
-                                    <label for="star1" title="Very Poor">★</label>
-                                </div>
-                                <div class="error-message"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="delivery_preference" class="form-label">Preferred Delivery Time</label>
-                                <select id="delivery_preference" name="delivery_preference" class="form-select">
-                                    <option value="">Select preferred time</option>
-                                    <option value="morning">Morning (9 AM - 12 PM)</option>
-                                    <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
-                                    <option value="evening">Evening (4 PM - 8 PM)</option>
-                                    <option value="anytime">Anytime</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="contact_method" class="form-label">Preferred Contact Method</label>
-                                <select id="contact_method" name="contact_method" class="form-select">
-                                    <option value="">Select contact method</option>
-                                    <option value="email">Email</option>
-                                    <option value="phone">Phone Call</option>
-                                    <option value="sms">SMS</option>
-                                    <option value="whatsapp">WhatsApp</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="special_instructions" class="form-label">Special Instructions for Delivery</label>
-                            <textarea 
-                                id="special_instructions" 
-                                name="special_instructions" 
-                                class="form-textarea" 
-                                placeholder="E.g., Leave at front door, call upon arrival, security gate code, etc..."
-                            ></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="feedback" class="form-label">Additional Feedback (Optional)</label>
-                            <textarea 
-                                id="feedback" 
-                                name="feedback" 
-                                class="form-textarea" 
-                                placeholder="Share your thoughts about our service, products, or suggestions for improvement..."
-                            ></textarea>
-                        </div>
-                        
-                        <div class="checkbox-group">
-                            <input type="checkbox" id="newsletter" name="newsletter" class="form-checkbox" checked>
-                            <label for="newsletter" class="checkbox-label">
-                                Yes, I'd like to receive updates about new products, offers, and promotions
-                            </label>
-                        </div>
-                        
-                        <div class="checkbox-group">
-                            <input type="checkbox" id="review_reminder" name="review_reminder" class="form-checkbox">
-                            <label for="review_reminder" class="checkbox-label">
-                                Send me a reminder to review my purchase after delivery
-                            </label>
-                        </div>
-                        
-                        <button type="submit" class="form-submit">
-                            <i class="fas fa-paper-plane"></i> Submit Preferences
-                        </button>
-                        
-                        <p class="form-note">
-                            <i class="fas fa-info-circle"></i>
-                            Your preferences will help us serve you better. You can update these anytime in your account settings.
-                        </p>
-                    </form>
-                </div>
+                       
                 <!-- END FORM -->
                 
                 <!-- Next Steps -->
@@ -367,7 +270,6 @@
         <i class="fas fa-gift"></i>
     </button>
 
-    <script src="<?php echo ASSETS_URL; ?>js/confirmation.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </body>
 </html>

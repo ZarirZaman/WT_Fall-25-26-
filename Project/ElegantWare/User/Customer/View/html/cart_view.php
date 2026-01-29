@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart - ElegantWare</title>
-    <link rel="stylesheet" href="<?php echo ASSETS_URL; ?>css/cart.css">
+    <link rel="stylesheet" href="/WT_Fall-25-26-/Project/Public/customer/css/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
         <nav class="navbar container">
             <nav>
                 <a href="index.php" class="logo">Elegant<span>Ware</span></a>
-                <div class="search-container">
+                <br>
                             <form id="searchForm" method="get" action="index.php" class="search-form">
                                 <div class="search-input-group">
                                     <input type="text"
@@ -26,6 +26,7 @@
                         </div>
                             </form>
                         </div>
+                        <br>
             <ul class="nav-links">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="index.php#categories">Categories</a></li>
@@ -231,6 +232,6 @@
     <!-- Cart Notification -->
     <div class="cart-notification" id="cartNotification"></div>
 
-    <script src="<?php echo ASSETS_URL; ?>js/cart.js"></script>
+    <script src="/WT_Fall-25-26-/Project/Public/customer/js/cart.js"></script>
 </body>
 </html>

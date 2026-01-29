@@ -1,6 +1,3 @@
-// ======================
-// FORM VALIDATION FUNCTIONS
-// ======================
 
 function showAlert(message, type) {
     const alertDiv = document.createElement('div');
@@ -29,10 +26,6 @@ function togglePasswordVisibility(inputId) {
         input.setAttribute('type', type);
     }
 }
-
-// ======================
-// DOM CONTENT LOADED
-// ======================
 
 document.addEventListener('DOMContentLoaded', function() {
     // Form validation for login

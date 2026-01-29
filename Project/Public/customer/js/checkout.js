@@ -1,4 +1,4 @@
-// View/js/checkout.js
+
 document.addEventListener('DOMContentLoaded', function() {
     // Payment method toggle
     const paymentRadios = document.querySelectorAll('input[name="payment_method"]');

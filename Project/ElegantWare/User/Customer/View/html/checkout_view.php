@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - ElegantWare</title>
-    <link rel="stylesheet" href="<?php echo ASSETS_URL; ?>css/cart.css">
-    <link rel="stylesheet" href="<?php echo ASSETS_URL; ?>css/checkout.css">
+    <link rel="stylesheet" href="/WT_Fall-25-26-/Project/Public/customer/css/cart.css">
+    <link rel="stylesheet" href="/WT_Fall-25-26-/Project/Public/customer/css/checkout.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Additional checkout-specific styles */
@@ -99,19 +99,15 @@
         <nav class="navbar container">
             <nav>
                 <a href="index.php" class="logo">Elegant<span>Ware</span></a>
-                <div class="search-container">
-                    <form id="searchForm" method="get" action="index.php" class="search-form">
-                        <div class="search-input-group">
-                            <input type="text"
-                                name="search" id="searchInput" 
-                                class="search-input" placeholder="Search products..." 
-                                value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>" autocomplete="off">
-                            <button type="submit" class="search-btn">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                <br>                        
+                    <form id="searchForm" method="get" action="index.php" class="search-form">                                
+                        <div class="search-input-group">                                    
+                            <input type="text"name="search" id="searchInput" class="search-input" placeholder="Search products..." value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>" autocomplete="off">                            
+                            <button type="submit" class="search-btn"> <i class="fas fa-search"></i></button>                                                   
+                            <div class="search-suggestions" id="searchSuggestions"></div>                        
+                        </div>                            
+                    </form>                        
+                <br>
                 <ul class="nav-links">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="index.php#categories">Categories</a></li>
@@ -192,7 +188,14 @@
                                             <option value="">Select State</option>
                                             <option value="AL">Alabama</option>
                                             <option value="AK">Alaska</option>
-                                            <!-- Add more states -->
+                                            <option value="BD">Bangladesh</option>
+                                            <option value="IN">India</option>
+                                            <option value="PAK">Pakistan</option>
+                                            <option value="NEV">Nevada</option>
+                                            <option value="AUS">Australia</option>
+                                            <option value="NZ">New Zealand</option>
+                                            <option value="POR">Portugal</option>
+                                            <option value="SPN">Spain</option>
                                         </select>
                                     </div>
                                 </div>
@@ -325,6 +328,7 @@
                 return false;
             }
         });
+        <script src="/WT_Fall-25-26-/Project/Public/customer/js/checkout.js"></script>
     </script>
 </body>
 </html>

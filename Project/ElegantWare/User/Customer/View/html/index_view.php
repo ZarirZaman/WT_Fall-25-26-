@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ElegantWare - Premium Ceramics & Tableware</title>
-    <link rel="stylesheet" href="<?php echo ASSETS_URL; ?>css/index.css">
+    <link rel="stylesheet" href="/WT_Fall-25-26-/Project/Public/customer/css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -12,19 +12,20 @@
         <nav class="navbar">
             <div class="container">
                 <a href="index.php" class="logo">Elegant<span>Ware</span></a>
-                <div class="search-container">
-                            <form id="searchForm" method="get" action="index.php" class="search-form">
-                                <div class="search-input-group">
-                                    <input type="text"
-                                    name="search" id="searchInput" 
-                                    class="search-input" placeholder="Search products..." 
-                                    value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>" autocomplete="off">                        
+                <br>
+                <form id="searchForm" method="get" action="index.php" class="search-form">
+                    <div class="search-input-group">
+                        <input  type="text"
+                                name="search" id="searchInput" 
+                                class="search-input" placeholder="Search products..." 
+                                value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>" autocomplete="off">                        
                                     <button type="submit" class="search-btn"> <i class="fas fa-search"></i></button>                        
                                     <div class="search-suggestions" id="searchSuggestions"></div>                        
-                                </div>
-                            </form>
-                        </div>
+                    </div>
+                </form>
+                <br>
                 <ul class="nav-links">
+                    
                     <li><a href="index.php" class="active">Home</a></li>
                     <li><a href="#categories">Categories</a></li>
                     <li>
@@ -138,7 +139,7 @@
                     </a>
                 </div>
             <?php endif; ?>
-            
+         
             <div class="sort-controls">
                 <span class="sort-label">Sort by: </span>
                 <select id="sortProducts" class="sort-select">
@@ -272,57 +273,6 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>ElegantWare</h3>
-                    <p>Premium ceramics and tableware for modern living. Crafted with care, designed for life.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-pinterest"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#categories">Categories</a></li>
-                        <li><a href="contact.php">Contact Us</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Categories</h3>
-                    <ul>
-                        <li><a href="index.php?category=plates">Plates</a></li>
-                        <li><a href="index.php?category=bowls">Bowls</a></li>
-                        <li><a href="index.php?category=cups">Cups & Mugs</a></li>
-                        <li><a href="index.php?category=sets">Complete Sets</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Ceramic Street, Art District</li>
-                        <li><i class="fas fa-phone"></i> 01629902495</li>
-                        <li><i class="fas fa-envelope"></i> info@elegantware.com</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; <?php echo date('Y'); ?> ElegantWare. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
     <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay" style="display: none;">
         <div class="loading-spinner">
@@ -330,6 +280,6 @@
         </div>
     </div>
 
-    <script src="<?php echo ASSETS_URL; ?>js/index.js"></script>
+    <script src="/WT_Fall-25-26-/Project/Public/customer/js/index.js"></script>
 </body>
 </html>

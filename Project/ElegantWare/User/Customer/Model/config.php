@@ -3,9 +3,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-/* =====================
-   DATABASE CONFIG
-===================== */
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'crockery_store');
 define('DB_USER', 'root');
@@ -16,16 +13,9 @@ if ($conn->connect_error) {
     die("Database connection failed");
 }
 
-/* =====================
-   SITE SETTINGS
-===================== */
 define('SITE_NAME', 'ElegantWare');
 
-/* =====================
-   PATH SETTINGS
-   (You are inside User/Customer/Model/)
-===================== */
-define('BASE_PATH', dirname(__DIR__));     // User/Customer
+define('BASE_PATH', dirname(__DIR__));   
 define('MODEL_PATH', BASE_PATH . '/Model/');
 define('CONTROLLER_PATH', BASE_PATH . '/Controller/');
 define('VIEW_PATH', BASE_PATH . '/View/');
@@ -33,5 +23,5 @@ define('VIEW_PATH', BASE_PATH . '/View/');
 /* =====================
    WEB URLS
 ===================== */
-define('WEB_ROOT', '/ElegantWare/User/Customer/');
+define('WEB_ROOT', 'http://localhost/ElegantWare/');
 define('ASSETS_URL', WEB_ROOT . 'View/');

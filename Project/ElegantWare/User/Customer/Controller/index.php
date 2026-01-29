@@ -43,6 +43,7 @@ $all_products = [
      
     ['id' => 8, 'name' => 'Luxury Dinnerware Set', 'description' => '24-piece luxury dinnerware set for special occasions', 
      'price' => 199.99, 'category' => 'Sets', 'image_class' => 'fa-box-open'],
+    
 ];
 // Filter products by search term
 if (!empty($search_term)) {

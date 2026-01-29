@@ -2,7 +2,8 @@
 <html>
     <head>
         <title>Register - ElegantWare</title>
-        <link rel="stylesheet" href="<?php echo ASSETS_URL; ?>css/register.css">
+        <link rel="stylesheet" href="/WT_Fall-25-26-/Project/Public/customer/css/register.css">
+        <script src="/WT_Fall-25-26-/Project/Public/customer/js/register.js"></script>
     </head>
     <body>
         <header>
@@ -55,6 +56,5 @@
             </div>
         </div>
         </main>
-        <script src="<?php echo ASSETS_URL; ?>js/register.js"></script>
     </body>
 </html>
